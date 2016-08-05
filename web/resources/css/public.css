@@ -1,0 +1,22 @@
+/*public*/
+/*---滚动条大小--*/
+::-webkit-scrollbar{width:10px;}
+/*---滚动框背景样式--*/
+::-webkit-scrollbar-track-piece{background-color:#F2F2F2;border:1px solid #DBDBDB;}
+/*---滚动条默认显示样式--*/
+::-webkit-scrollbar-thumb{width:10px;background-color:#D9D9D9;border:1px solid #BDBDBD;-webkit-border-radius:10px;}
+/*---鼠标点击滚动条显示样式--*/
+::-webkit-scrollbar-thumb:hover{background-color:#C2C2C2;border:1px solid #A9A9A9;}
+::-webkit-scrollbar-thumb:active{background-color:#919191;border:1px solid #7C7C7C;}
+
+input,textarea{resize:none;outline:none;}
+
+
+.bt{width:69px;height:22px;line-height:22px;border:none;color:#cc0;background:url(../images/button.png) no-repeat;background-size:100% 100%;}
+.bt:hover{background:url(../images/button_hover.png) no-repeat;background-size:100% 100%;}
+.bt:active{background:url(../images/button_active.png) no-repeat;background-size:100% 100%;}
+.bt2{background-color:#3bb3e0;padding:5px 10px;font-size:12px;color:#fff;border:solid 1px #186f8f;background-image:-webkit-linear-gradient(bottom,rgb(44,160,202) 0%,rgb(62,184,229) 100%);background-image:-webkit-gradient( linear,left bottom,left top,color-stop(0,rgb(44,160,202)),color-stop(1,rgb(62,184,229)) );-webkit-box-shadow:inset 0px 1px 0px #7fd2f1,0px 1px 0px #fff;-webkit-border-radius:5px;}
+.bt2:active{background-image:-webkit-linear-gradient(bottom,rgb(62,184,229) 0%,rgb(44,160,202) 100%);background-image:-webkit-gradient( linear,left bottom,left top,color-stop(0,rgb(62,184,229)),color-stop(1,rgb(44,160,202)) );}
+.txt{outline:none;display:inline-block;padding:4px;font-size:14px;border:1px solid #0d7bd5;cursor:text;box-shadow:0 1px 0 rgba(255,255,255,.3),0 1px 3px rgba(0,0,0,.3) inset;background-clip: padding-box;border-radius:5px;}
+.bottom-shadow{position:absolute;bottom:0;width:100%;height:20px;background:-webkit-gradient(linear,left bottom,left top,from(rgba(255, 255, 255, 1)),to(transparent));-webkit-mask-box-image:-webkit-gradient(linear,left bottom,right bottom,color-stop(0.0,rgba(0,0,0,0)),color-stop(0.5,rgba(0,0,0,.5)),color-stop(1.0,rgba(0,0,0,0)));}
+

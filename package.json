@@ -1,0 +1,64 @@
+{
+	"main": "web/main.html",
+	"name": "WEB开发者助手",
+	"version": "0.0.1",
+	"description": "WEB开发者助手",
+	"keywords": [
+		"WEB开发者助手"
+	],
+	"nodejs": true,
+	"node-main": "web/node-main.js",
+	"bg-script": "web/bg-script/index.js",
+	"user-agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
+	"inject_js_start": "web/inject-js/inject_js_start.js",
+	"inject_js_end": "web/inject-js/inject_js_end.js",
+	"no-edit-menu": true,
+	"window": {
+		//"id": "index",
+		"title": "WEB开发者助手",
+		"width": 800,
+		"height": 600,
+		"toolbar": false,
+		"icon": "web/resources/icons/icon.png",
+		"position": "center",
+		"min_width": 800,
+		"min_height": 600,
+		"as_desktop": true,
+		//"resizable": false,// 全屏会影响最大化为全屏
+		"always-on-top": false,
+		"fullscreen": false,
+		"show_in_taskbar": true,
+		"show": false,
+		"kiosk": false,
+		//"transparent": true,// 最大化失效
+		"frame": false
+	},
+	"webkit": {
+		"double_tap_to_zoom_enabled": false,
+		"plugin": true
+	},
+	"chromium-args": "--disable-gpu --force-cpu-draw",
+	"maintainers": [
+		{
+			"name": "Zhang Shuzheng",
+			"email": "469741414@qq.com",
+			"web": "http://www.zhangshuzheng.cn"
+		}
+	],
+	"contributors": [
+		{
+			"name": "Zhang Shuzheng",
+			"email": "469741414@qq.com",
+			"web": "http://www.zhangshuzheng.cn"
+		}
+	],
+	"repositories": [{
+		"type": "git",
+		"url": "https://github.com/shuzheng"
+	}],
+	"licenses": [{
+		"type": "MIT",
+		"url": "https://opensource.org/licenses/mit-license.php"
+	}]
+	
+}

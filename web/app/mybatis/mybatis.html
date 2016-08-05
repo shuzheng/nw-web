@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="utf-8"/>
+<link rel="shortcut icon" href="resources/icons/icon.png" id="icon"/>
+<link rel="stylesheet" href="resources/css/public.css"/>
+<style>
+#sql,#result{width:100%;height:150px;outline:none;resize:none;}
+#sql:focus,#result:focus{border:1px solid #1583DD;}
+</style>
+<title>mybatis</title>
+</head>
+<body>
+<textarea id="sql">
+DEBUG: com.hbdiy.ec.dao.DiyMapper.selectGroupByValueId - ==>  Preparing: SELECT savg.ATTRIBUTE_VALUE_GROUP_ID AS attributeValueGroupId, savg.ATTRIBUTES_TEMPLATE_ID AS attributesTemplateId, savg.GROUP_NAME AS groupName, savg.GROUP_ATTRIBUTE_JSON AS groupAttributeJson, savg.IS_ABANDON AS isAbandon FROM sd_attribute_value_group AS savg WHERE savg.ATTRIBUTE_VALUE_GROUP_ID IN ( SELECT vg.ATTRIBUTE_VALUE_GROUP_ID as attributeValueGroupId FROM ( SELECT savgv.ATTRIBUTE_VALUE_GROUP_ID, COUNT(savgv.ATTRIBUTE_VALUE_GROUP_ID) AS groupCount FROM sd_attribute_value_group_value AS savgv WHERE savgv.ATTRIBUTE_VALUE_ID IN ( ? , ? , ? , ? ) GROUP BY savgv.ATTRIBUTE_VALUE_GROUP_ID ) vg WHERE groupCount >= ? ) AND savg.IS_ABANDON = 0 
+DEBUG: com.hbdiy.ec.dao.DiyMapper.selectGroupByValueId - ==> Parameters: B0246ABACB1D43418512884735466AB3(String), 81ECFFE42B844DFC8D79C8AB9364BF65(String), 1E967776349E4141AF6D5D4EBFBBAA78(String), CEB8355E7D784DBB89D7DC36626E348D(String), 4(Integer)
+</textarea>
+<textarea id="result">
+
+</textarea>
+<input id="go" type="button" value="转SQL"/>
+<input id="copy" type="button" value="复制SQL"/>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script>
+$(function() {
+	// 转SQL
+	$('#go').click(function() {
+		var arry = $('#sql').val().split('\n');
+		var sql;
+		var param;
+		var sqlSplit = 'Preparing: ';
+		var paramSplit = 'Parameters: ';
+		$.each(arry, function(i, str) {
+			// 过滤空行
+			if ('' == str) {
+				return false;
+			}
+			// sql行
+			if (str.indexOf(sqlSplit) > 0) {
+				sql = str.substring(str.indexOf(sqlSplit) + sqlSplit.length);
+				//console.log(sql);
+			}
+			// 参数行
+			if (str.indexOf(paramSplit) > 0) {
+				param = str.substring(str.indexOf(paramSplit) + paramSplit.length);
+				//console.log(param);
+			}
+		});
+		// 参数数组
+		var paramsStr = param.split(',');
+		var stringType = '(String)';
+		var integerType = '(Integer)';
+		var booleanType = '(Boolean)';
+		var params = new Array();
+		$.each(paramsStr, function(i, str) {
+			if (str.indexOf(stringType) + stringType.length == str.length) {
+				params.push("'" + $.trim(str.substring(0, str.indexOf(stringType))) + "'");
+			}
+			if (str.indexOf(integerType) + integerType.length == str.length) {
+				params.push($.trim(str.substring(0, str.indexOf(integerType))));
+			}
+			if (str.indexOf(booleanType) + booleanType.length == str.length) {
+				params.push($.trim(str.substring(0, str.indexOf(booleanType))));
+			}
+		});
+		// 替换占位符获取结果
+		$.each(params, function(i, p) {
+			//console.log(p);
+			sql = sql.replace('?', p);
+		});
+		//console.log(sql);
+		$('#result').val(sql);
+	});
+	// 复制SQL
+	var gui = require('nw.gui');
+	var clipboard = nw.Clipboard.get();
+	$('#copy').click(function() {
+		clipboard.set($('#result').val(), 'text');
+		alert('已复制！');
+	});
+});
+</script>
+</body>
+</html>

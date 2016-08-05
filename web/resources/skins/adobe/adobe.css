@@ -1,0 +1,33 @@
+/*adobe*/
+body{margin:0 1px 1px;outline:#646464 solid thick;}
+.body_max{margin:0;outline:none;}
+
+#titlebar{height:30px;background:url(bg.png) repeat-x;}
+#titlebar #caption{float:left;height:30px;line-height:30px;color:#444;font-size:13px;text-shadow:0 0 7px #fff;}
+#titlebar #caption img{float:left;width:16px;height:16px;margin:7px;}
+
+#titlebar #buttons{float:right;-webkit-app-region:no-drag;-webkit-user-drag:none;}
+#titlebar #buttons #set,#titlebar #buttons #min,#titlebar #buttons #max,#titlebar #buttons #close{display:block;float:left;height:21px;-webkit-transition-duration:.2s;cursor:default;}
+#titlebar #buttons #set{width:40px;background:url(set.png) no-repeat;}
+#titlebar #buttons #set:hover{background:url(set_hover.png) no-repeat;}
+#titlebar #buttons #set:active{background:url(set_active.png) no-repeat;}
+#titlebar #buttons #min{width:29px;background:url(min.png) no-repeat;margin-right:-1px;}
+#titlebar #buttons #min:hover{background:url(min_hover.png) no-repeat;}
+#titlebar #buttons #min:active{background:url(min_active.png) no-repeat;}
+#titlebar #buttons #max{width:28px;margin-right:-1px;}
+#titlebar #buttons .max1{background:url(max1.png) no-repeat;}
+#titlebar #buttons .max1:hover{background:url(max1_hover.png) no-repeat;}
+#titlebar #buttons .max1:active{background:url(max1_active.png) no-repeat;}
+#titlebar #buttons .max2{background:url(max2.png) no-repeat;}
+#titlebar #buttons .max2:hover{background:url(max2_hover.png) no-repeat;}
+#titlebar #buttons .max2:active{background:url(max2_active.png) no-repeat;}
+#titlebar #buttons #close{width:48px;background:url(close.png) no-repeat;margin-right:5px;}
+#titlebar #buttons #close:hover{width:48px;background:url(close_hover.png) no-repeat;}
+#titlebar #buttons #close:active{width:48px;background:url(close_active.png) no-repeat;}
+
+#main{background:#FFF;}
+
+#menubar{height:44px;background:#EDEEEE;border-bottom:1px solid #D7D7D7;}
+#menubar ul li a{display:block;height:28px;line-height:28px;margin:7px 0 7px 10px;padding:0 10px;font-size:13px;color:#333;border:1px solid #EDEEEE;border-radius:2px;}
+#menubar ul li a:hover{color:#006DB0;border:1px solid #9D9FA0;}
+#menubar ul li .cur{color:#006DB0;border:1px solid #9D9FA0;background:#DADBDB;}
