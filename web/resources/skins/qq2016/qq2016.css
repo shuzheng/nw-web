@@ -1,5 +1,5 @@
 /*qq*/
-body{margin:0;/*margin:8px;box-shadow:0 0 8px #888;*/}
+body{margin:0;margin:8px;box-shadow:0 0 8px rgba(0, 0, 0, .5);}
 .body_max{margin:0;outline:none;}
 
 #titlebar{height:30px;background:#288ADD;border-top-left-radius:2px;border-top-right-radius:2px;}
